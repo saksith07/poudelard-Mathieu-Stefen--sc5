@@ -1,3 +1,8 @@
+# ================================
+# Création du personnage
+# ================================
+
+
 def initialiser_personnage(nom, prenom, attributs):
     liste_inventaire = []
     liste_sortilege = []
@@ -12,6 +17,10 @@ def initialiser_personnage(nom, prenom, attributs):
     }
 
     return joueur
+
+# ================================
+# Affichage du personnage
+# ================================
 
 def afficher_personnage(joueur):
     print("Profil du personnage :")
@@ -32,3 +41,34 @@ def afficher_personnage(joueur):
 
         else:
             print(f"{cle} : {valeur}")
+
+# ================================
+# Gestion de l'argent
+# ================================
+
+def modifier_argent(joueur, montant):
+    joueur["Argent"] = joueur["Argent"] + montant
+
+# ================================
+# Ajout d'un objet
+# ================================
+
+def ajouter_objet(joueur, cle, objet):
+    joueur[cle].append(objet)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
