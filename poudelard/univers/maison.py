@@ -23,7 +23,7 @@ def afficher_maison_gagnante(maisons):
             gagnantes.append(nom)
 
     if len(gagnantes) == 1:
-        print("La maison gagnante est {} avec {} points.".format(gagnantes[0], score_max))
+        print("La maison gagnantes est {} avec {} points.".format(gagnantes[0], score_max))
 
     else:
         print("Maisons à égalité :")
@@ -35,64 +35,6 @@ def afficher_maison_gagnante(maisons):
 # Répartition d'un joueur dans les maisons quiz
 # ================================
 
-
-
-def repartition_maison(joueur, questions):
-    # 1. Initialiser les scores
-    scores = {
-        "Gryffondor": 0,
-        "Serpentard": 0,
-        "Poufsouffle": 0,
-        "Serdaigle": 0
-    }
-
-    # 2. Points venant des attributs (*2)
-    attributs = joueur["Attributs"]
-    scores["Gryffondor"] += attributs["courage"] * 2
-    scores["Serpentard"] += attributs["ambition"] * 2
-    scores["Poufsouffle"] += attributs["loyauté"] * 2
-    scores["Serdaigle"] += attributs["intelligence"] * 2
-
-    # 3. Quiz (chaque bonne réponse donne +3 à une maison)
-    for question, options, maisons_associees in questions:
-        print(question)
-        choix = 1
-        for option in options:
-            print(str(choix) + ". " + option)
-            choix += 1
-
-        reponse = demander_choix("Ton choix :", options)
-        maison = maisons_associees[options.index(reponse)]
-        scores[maison] += 3
-
-    # 4. Trouver la maison gagnante
-    for maison in scores:
-        maison_gagnante = maison
-        break
-
-    for maison in scores:
-        if scores[maison] > scores[maison_gagnante]:
-            maison_gagnante = maison
-
-    # 5. Affichage récapitulatif
-    print("Résumé des scores :")
-    for maison in scores:
-        print(maison + " :", scores[maison], "points")
-
-    return maison_gagnante
-
-
-
-    for maison, points in scores.items():
-        print("{} : {} points".format(maison, points))
-
-        # Recherche du max
-        if points > score_max:
-            score_max = points
-            maison_gagnante = maison
-
-    # 5. On retourne le nom de la maison gagnante
-    return maison_gagnante
 
 
 
