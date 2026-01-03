@@ -1,0 +1,16 @@
+Difficultés rencontrées
+
+#Au cours du développement de ce projet, nous avons rencontré plusieurs difficultés. 
+#La première a concerné la structuration globale du programme, notamment la séparation correcte des responsabilités
+#entre les différents modules (chapitres, univers, utils, menu), afin d’éviter les dépendances excessives et conserver
+#un code lisible et maintenable. La manipulation d'outils nouveaux (dictionnaires et listes imbriqués)
+#a également représenté un défi, en particulier pour la mise à jour cohérente des attributs du joueur et des scores des maisons
+#tout au long de l’aventure.
+#Nous avons porté une attention particulière à la gestion des saisies utilisateur pour garantir la validité des entrées sans
+#provoquer de blocages ou de comportements imprévus, tout en respectant les contraintes imposées sur l’utilisation des fonctions natives.
+#De plus, l’exploitation des fichiers JSON a soulevé des difficultés liées à la compréhension de leur structure, à la gestion des chemins
+#de fichiers et à la cohérence des données chargées pendant l’exécution du jeu.
+#Nous avons trouvé que la simulation du match de Quidditch a été la partie la plus complexe du projet ; elle combine des mécanismes
+#aléatoires, ainsi qu'une logique de jeu multi-étapes, mais aussi la mise à jour simultanée de plusieurs états.
+#L’ensemble de ces difficultés a toutefois permis de renforcer notre rigueur, notre capacité à structurer un projet de taille moyenne et 
+#notre compréhension des principes fondamentaux de la programmation modulaire en Python.
