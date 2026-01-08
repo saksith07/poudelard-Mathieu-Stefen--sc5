@@ -142,31 +142,37 @@ def match_quidditch(joueur, maisons):
 
     print("\nRésultat final :")
 
+    nom_attrapeur = ""
     if equipe_joueur["attrape_vifdor"] == True:
-        print("Le Vif d'Or a été attrapé par {} !".format(equipe_joueur["nom"]))
+        nom_attrapeur = equipe_joueur["nom"]
     elif equipe_adverse["attrape_vifdor"] == True:
-        print("Le Vif d'Or a été attrapé par {} !".format(equipe_adverse["nom"]))
+        nom_attrapeur = equipe_adverse["nom"]
+
+    print("Le Vif d'Or a été attrapé par {} !".format(nom_attrapeur))
+
+    actualiser_points_maison(maisons, equipe_joueur["nom"], equipe_joueur["score"])
+    actualiser_points_maison(maisons, equipe_adverse["nom"], equipe_adverse["score"])
+
+    afficher_maison_gagnante(maisons)
 
     nom_gagnant = ""
-
     if equipe_joueur["score"] > equipe_adverse["score"]:
         nom_gagnant = equipe_joueur["nom"]
-        print("{} remporte le match...".format(nom_gagnant))
-
     elif equipe_adverse["score"] > equipe_joueur["score"]:
         nom_gagnant = equipe_adverse["nom"]
-        print("{} remporte le match...".format(nom_gagnant))
-
-    else:
-        print("Match nul ! Incroyable !")
 
     if nom_gagnant != "":
-        print("+500 points pour {} !".format(nom_gagnant))
+        print("{} remporte le match...".format(nom_gagnant))
+
+        # Ajout du bonus de victoire
         actualiser_points_maison(maisons, nom_gagnant, 500)
+
+        afficher_maison_gagnante(maisons)
+    else:
+        print("Match nul ! ")
 
 
 def lancer_chapitre4_quidditch(joueur, maisons):
-
     print("\n" + "=" * 50)
     print("⚡ CHAPITRE 4 : LA GRANDE FINALE DE QUIDDITCH ⚡")
     print("=" * 50)
@@ -179,4 +185,10 @@ def lancer_chapitre4_quidditch(joueur, maisons):
     afficher_maison_gagnante(maisons)
 
     print("\n--- INFORMATIONS FINALES SUR VOTRE PERSONNAGE ---")
+
+    # --- CORRECTION ICI ---
+    # On synchronise le score du joueur avec celui de sa maison pour l'affichage final
+    if joueur["Maison"] in maisons:
+        joueur["Score"] = maisons[joueur["Maison"]]
+
     afficher_personnage(joueur)
