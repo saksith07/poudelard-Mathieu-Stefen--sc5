@@ -54,10 +54,7 @@ def tentative_marque(equipe_attaque, equipe_defense, joueur_est_joueur=False):
 
 
 def apparition_vifdor():
-    """
-    Décide aléatoirement si le Vif d'Or fait son apparition durant le match.
-    Retourne True si le chiffre tiré est 6 (1 chance sur 6).
-    """
+
     chance = random.randint(1, 6)
 
     if chance == 6:
